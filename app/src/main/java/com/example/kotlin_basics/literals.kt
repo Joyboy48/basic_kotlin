@@ -59,6 +59,11 @@ fun main(){
     val multiplyresult = operateOnNumber(5,6){a,b->a*b}
     println(multiplyresult)
 
+    //it keyword
+    //for single parameter
+    val squaredNumber2 = number.map{it*it}
+    println(squaredNumber2)
+
 }
 
 

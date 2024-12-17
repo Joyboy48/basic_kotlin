@@ -1,20 +1,40 @@
 package com.example.kotlin_basics
 
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Button
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var myTextView: TextView
+    lateinit var myEditText: EditText
+    lateinit var myButton: Button
+    lateinit var myImageView: ImageView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+
+        //set the content view to the activity_main.xml layout file
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        //Initialising Views
+        myTextView = findViewById(R.id.textView6)
+        myTextView.setText("Welcome to Android")
+        myEditText = findViewById(R.id.editText6)
+        myButton = findViewById(R.id.button)
+        myImageView = findViewById(R.id.imageView)
+
+        myButton.setOnClickListener {
+            Toast.makeText(this,"Button Clicked",Toast.LENGTH_LONG).show()
+
+            myImageView.setImageResource(R.drawable.highs6)
         }
+
+
     }
 }
